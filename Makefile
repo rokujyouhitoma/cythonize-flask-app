@@ -1,10 +1,11 @@
-PYTHON=python
+PYTHON := python
 
 compile:
-	PYTHON setup.py build_ext --inplace
+	PYTHON setup.py build_ext --force --inplace
 
 run:
 	env FLASK_APP=app.py flask run
 
+.PHONY: clean
 clean:
-	rm -rf __pycache__ build/ hello.c hello.cpython-36m-darwin.so
+	@rm -rf *.c *.so build __pycache__
