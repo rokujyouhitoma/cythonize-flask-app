@@ -1,6 +1,16 @@
+CC := gcc
 PYTHON := python
 
-compile:
+CYTHONIZE := cythonize
+
+SITE_PACKAGES := $(shell $(PYTHON) -c "import site; print(site.getsitepackages()[0])")
+
+compile: compile-libraries compile-app
+
+compile-libraries:
+	CYTHONIZE $(SITE_PACKAGES)/flask/ -3 -b
+
+compile-app:
 	PYTHON setup.py build_ext --force --inplace
 
 run:
@@ -8,4 +18,4 @@ run:
 
 .PHONY: clean
 clean:
-	@rm -rf *.c *.so build __pycache__
+	@rm -rf *.c *.so build __pycache__ flask
