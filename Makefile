@@ -15,7 +15,8 @@ compile-app:
 
 run:
 	#env FLASK_APP=app.py flask run
-	gunicorn --workers=2 --worker-class="egg:meinheld#gunicorn_worker" app:app
+	#gunicorn --workers=2 --worker-class="egg:meinheld#gunicorn_worker" app:app
+	gunicorn -c gunicorn.conf.py app:app
 
 .PHONY: clean
 clean:
