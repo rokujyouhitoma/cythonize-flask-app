@@ -1,2 +1,5 @@
 Cython==0.29.13
 Flask==1.1.1
+gunicorn==19.9.0
+meinheld==1.0.1
+

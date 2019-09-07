@@ -14,7 +14,8 @@ compile-app:
 	PYTHON setup.py build_ext --force --inplace
 
 run:
-	env FLASK_APP=app.py flask run
+	#env FLASK_APP=app.py flask run
+	gunicorn --workers=2 --worker-class="egg:meinheld#gunicorn_worker" app:app
 
 .PHONY: clean
 clean:
