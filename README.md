@@ -1,4 +1,4 @@
-# cythonize-flask-app
+# cythonize-vibora-app
 
 ## Build
 
